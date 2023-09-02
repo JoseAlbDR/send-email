@@ -41,7 +41,7 @@ app.use(xss);
 app.use(express.static("./src/client/build"));
 
 app.get("/", (_req, res) => {
-  res.send("Hello There!");
+  res.send("<h1>Email Project</h1><a href='/send'>Send email</a>");
 });
 
 app.use(notFoundMiddleware);
