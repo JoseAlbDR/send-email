@@ -9,6 +9,7 @@ import helmet from "helmet";
 import cors from "cors";
 // import rateLimiter from "express-rate-limit";
 import xss from "./middleware/xssMiddleware";
+import { sendEmail } from "./controllers/sendEmail";
 
 // Swagger documentation
 // import swaggerUI, { JsonObject } from "swagger-ui-express";
@@ -43,6 +44,8 @@ app.use(express.static("./src/client/build"));
 app.get("/", (_req, res) => {
   res.send("<h1>Email Project</h1><a href='/send'>Send email</a>");
 });
+
+app.get("/send", sendEmail);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
